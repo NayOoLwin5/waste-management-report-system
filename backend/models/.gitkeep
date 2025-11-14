@@ -1,0 +1,27 @@
+# Models Directory
+
+This directory is used to cache downloaded AI/ML models.
+
+## Models Used
+
+### sentence-transformers
+- **Model**: all-MiniLM-L6-v2
+- **Size**: ~80MB
+- **Purpose**: Generate semantic embeddings for text
+- **Download**: Automatic on first run
+
+Models are downloaded once and cached for future use.
+
+## Directory Structure
+
+```
+models/
+├── .gitkeep (this file)
+└── sentence-transformers/
+    └── all-MiniLM-L6-v2/
+        ├── config.json
+        ├── pytorch_model.bin
+        └── tokenizer files
+```
+
+Models are excluded from git via .gitignore.

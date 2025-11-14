@@ -1,0 +1,62 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: gepp-postgres
+    environment:
+      POSTGRES_USER: gepp_user
+      POSTGRES_PASSWORD: gepp_password
+      POSTGRES_DB: gepp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gepp_user -d gepp_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: gepp-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://gepp_user:gepp_password@postgres:5432/gepp_db
+      DATABASE_HOST: postgres
+      DATABASE_USER: gepp_user
+      DATABASE_PASSWORD: gepp_password
+      DATABASE_NAME: gepp_db
+      ENVIRONMENT: production
+      LOG_LEVEL: INFO
+      # Seeding configuration
+      SEED_DATA: "true"          # Set to "false" to skip seeding
+      SEED_COUNT: "150"          # Number of mock incidents to create
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - backend_models:/app/models
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: gepp-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://localhost:8000
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host
+
+volumes:
+  postgres_data:
+  backend_models:
