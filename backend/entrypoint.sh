@@ -19,11 +19,11 @@ async def wait_for_db():
     for i in range(max_retries):
         try:
             conn = await asyncpg.connect(
-                host="${DATABASE_HOST:-gepp-postgres}",
-                port=5432,
-                user="${DATABASE_USER:-gepp_user}",
-                password="${DATABASE_PASSWORD:-gepp_password}",
-                database="${DATABASE_NAME:-gepp_db}"
+                host="${DATABASE_HOST:-waste-postgres}",
+                port=int("${DATABASE_PORT:-5432}"),
+                user="${DATABASE_USER:-waste_user}",
+                password="${DATABASE_PASSWORD:-waste_password}",
+                database="${DATABASE_NAME:-waste_db}"
             )
             await conn.close()
             print("✅ PostgreSQL is ready!")

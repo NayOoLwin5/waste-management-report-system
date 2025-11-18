@@ -2,7 +2,7 @@
 
 ## Overview
 
-GEPP (Global Environmental Protection Platform) is an enterprise-grade waste incident reporting and AI insight platform built with a modern, scalable architecture. The system uses a **modular monolith** approach for the backend, keeping related functionalities organized while maintaining deployment simplicity.
+This is an enterprise-grade waste incident reporting and AI insight platform built with a modern, scalable architecture. The system uses a **modular monolith** approach for the backend, keeping related functionalities organized while maintaining deployment simplicity.
 
 ## High-Level Architecture
 

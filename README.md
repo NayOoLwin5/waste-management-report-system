@@ -75,7 +75,7 @@
 ## Project Structure
 
 ```
-gepp/
+waste-management-report-system/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py                    # FastAPI application entry
@@ -139,7 +139,7 @@ gepp/
 ```bash
 # Clone repository
 git clone https://github.com/NayOoLwin5/waste-management-report-system.git
-cd gepp
+cd waste-management-report-system
 
 # Start all services (includes automatic database seeding)
 docker compose up -d --build

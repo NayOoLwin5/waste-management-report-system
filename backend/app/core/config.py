@@ -9,12 +9,12 @@ class Settings(BaseSettings):
     """Application settings"""
     
     # Application
-    APP_NAME: str = "GEPP - Waste Incident Platform"
+    APP_NAME: str = "Waste Incident Platform"
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
     
     # Database
-    DATABASE_URL: str = "postgresql://gepp_user:gepp_password@localhost:5432/gepp_db"
+    DATABASE_URL: str = "postgresql://waste_user:waste_password@localhost:5432/waste_db"
     
     # Logging
     LOG_LEVEL: str = "DEBUG"

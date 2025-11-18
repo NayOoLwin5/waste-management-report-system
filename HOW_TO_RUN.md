@@ -16,7 +16,7 @@
 
 ```bash
 git clone <repository-url>
-cd gepp
+cd waste-management-report-system
 ```
 
 ### 2. Set Up Environment Files
@@ -75,9 +75,9 @@ docker compose ps
 
 # Expected output:
 # NAME               STATUS              PORTS
-# gepp-postgres      Up (healthy)        5432->5432
-# gepp-backend       Up                  8000->8000
-# gepp-frontend      Up                  3000->3000
+# waste-postgres     Up (healthy)        5432->5432
+# waste-backend      Up                  8000->8000
+# waste-frontend     Up                  3000->3000
 
 # Test backend health
 curl http://localhost:8000/health
@@ -122,7 +122,7 @@ docker compose exec frontend sh
 
 **Database shell**:
 ```bash
-docker compose exec postgres psql -U gepp_user -d gepp_db
+docker compose exec postgres psql -U waste_user -d waste_db
 ```
 
 ---
@@ -133,10 +133,10 @@ docker compose exec postgres psql -U gepp_user -d gepp_db
 
 ```bash
 # Restore database
-docker compose exec -T postgres psql -U gepp_user gepp_db < backup.sql
+docker compose exec -T postgres psql -U waste_user waste_db < backup.sql
 
 # Or with Docker directly
-docker exec -i gepp-postgres psql -U gepp_user gepp_db < backup.sql
+docker exec -i waste-postgres psql -U waste_user waste_db < backup.sql
 ```
 
 ### Reset Database

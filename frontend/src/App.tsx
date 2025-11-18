@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Trash2, BarChart3, AlertTriangle, Sparkles } from 'lucide-react';
+import { Leaf, BarChart3, AlertTriangle, Sparkles } from 'lucide-react';
 import IncidentList from './pages/IncidentList';
 import IncidentForm from './pages/IncidentForm';
 import Dashboard from './pages/Dashboard';
@@ -14,9 +14,9 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex">
-                <Link to="/" className="flex-shrink-0 flex items-center cursor-pointer hover:opacity-80 transition-opacity">
-                  <Trash2 className="h-8 w-8 text-green-600" />
-                  <span className="ml-2 text-xl font-bold text-gray-900">GEPP</span>
+                                <Link to="/" className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
+                  <Leaf className="h-8 w-8 text-green-600" />
+                  <span className="ml-2 text-xl font-bold text-gray-900">Waste Management</span>
                 </Link>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <Link
